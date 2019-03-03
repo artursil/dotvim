@@ -1,5 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =3
-let g:netrw_dirhist_1='/home/artursil/Documents/tutorials'
-let g:netrw_dirhist_2='/home/artursil/Documents/virtual_trainer/openpose'
-let g:netrw_dirhist_3='/home/artursil/Documents/virtual_trainer'
