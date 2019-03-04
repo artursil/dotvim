@@ -19,12 +19,22 @@ ino <left> <Nop>
 ino <right> <Nop>
 ino <up> <Nop>
 
+
 iabbr pdb; import pdb; pdb.set_trace() <ESC>
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 
 set number
 
+:imap jj <Esc>
+
+set rtp+=/home/artursil/anaconda3/lib/python3.7/site-packages/powerline/bindings/vim
+
+" Always show statusline
+set laststatus=2
+
+" Use 256 colours (Use this setting only if your terminal supports 256 colours)
+set t_Co=256
 
 " When started as "evim", evim.vim will already have done these settings.
 if v:progname =~? "evim"
@@ -78,3 +88,7 @@ endif
 
 syntax on
 color dracula
+
+set backupdir=.backup/,~/.backup/,/tmp//
+set directory=.swp/,~/.swp/,/tmp//
+set undodir=.undo/,~/.undo/,/tmp//
