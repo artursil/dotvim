@@ -13,3 +13,9 @@
 [submodule "bundle/fugitive.git"]
 	path = bundle/fugitive.git
 	url = https://github.com/tpope/vim-fugitive.git
+[submodule "/home/artursil/.vim/bundle/nerdtree"]
+	path = /home/artursil/.vim/bundle/nerdtree
+	url = https://github.com/scrooloose/nerdtree.git
+[submodule "/home/artursil/.vim/bundle/easymotion"]
+	path = /home/artursil/.vim/bundle/easymotion
+	url = https://github.com/easymotion/vim-easymotion.git

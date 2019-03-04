@@ -1,14 +1,14 @@
 
 " An example for a vimrc file.
 "
-" Maintainer:	Bram Moolenaar <Bram@vim.org>
-" Last change:	2017 Sep 20
+" Maintainer:   Bram Moolenaar <Bram@vim.org>
+" Last change:  2017 Sep 20
 "
 " To use it, copy it to
 "     for Unix and OS/2:  ~/.vimrc
-"	      for Amiga:  s:.vimrc
+"         for Amiga:  s:.vimrc
 "  for MS-DOS and Win32:  $VIM\_vimrc
-"	    for OpenVMS:  sys$login:.vimrc
+"       for OpenVMS:  sys$login:.vimrc
 no <down> ddp
 no <left> <Nop>
 no <right> <Nop>
@@ -25,10 +25,12 @@ call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 
 set number
-
+" Rempa Escape to jj 
 :imap jj <Esc>
 
+" Change path to python3 - adds a powerline
 set rtp+=/home/artursil/anaconda3/lib/python3.7/site-packages/powerline/bindings/vim
+
 
 " Always show statusline
 set laststatus=2
@@ -45,11 +47,11 @@ endif
 source $VIMRUNTIME/defaults.vim
 
 if has("vms")
-  set nobackup		" do not keep a backup file, use versions instead
+  set nobackup      " do not keep a backup file, use versions instead
 else
-  set backup		" keep a backup file (restore to previous version)
+  set backup        " keep a backup file (restore to previous version)
   if has('persistent_undo')
-    set undofile	" keep an undo file (undo changes after closing)
+    set undofile    " keep an undo file (undo changes after closing)
   endif
 endif
 
@@ -72,7 +74,7 @@ if has("autocmd")
 
 else
 
-  set autoindent		" always set autoindenting on
+  set autoindent        " always set autoindenting on
 
 endif " has("autocmd")
 
@@ -89,6 +91,16 @@ endif
 syntax on
 color dracula
 
+"Tmp files in different directories
 set backupdir=.backup/,~/.backup/,/tmp//
 set directory=.swp/,~/.swp/,/tmp//
 set undodir=.undo/,~/.undo/,/tmp//
+
+"Copying outside VIM
+vmap <C-c> "+yi<ESC>
+vmap <C-x> "+c
+vmap <C-v> c<ESC>"+p
+imap <C-v> <ESC>"+pa
+
+" Change tabs to spaces - overwritten in .vim/after/ftplugin/python.vim
+:setlocal softtabstop=0 tabstop=4
