@@ -1,14 +1,6 @@
 
-" An example for a vimrc file.
-"
-" Maintainer:   Bram Moolenaar <Bram@vim.org>
-" Last change:  2017 Sep 20
-"
-" To use it, copy it to
-"     for Unix and OS/2:  ~/.vimrc
-"         for Amiga:  s:.vimrc
-"  for MS-DOS and Win32:  $VIM\_vimrc
-"       for OpenVMS:  sys$login:.vimrc
+" Maintainer:   Artur Silicki <artur.silicki@gmail.com>
+
 no <down> ddp
 no <left> <Nop>
 no <right> <Nop>
@@ -29,7 +21,7 @@ set number
 :imap jj <Esc>
 
 " Change path to python3 - adds a powerline
-set rtp+=/home/artursil/anaconda3/lib/python3.7/site-packages/powerline/bindings/vim
+ set rtp+=/home/artursil/anaconda3/lib/python3.7/site-packages/powerline/bindings/vim
 
 
 " Always show statusline
@@ -55,10 +47,10 @@ else
   endif
 endif
 
-if &t_Co > 2 || has("gui_running")
-  " Switch on highlighting the last used search pattern.
-  set hlsearch
-endif
+"if &t_Co > 2 || has("gui_running")
+"  " Switch on highlighting the last used search pattern.
+"  set hlsearch
+"endif
 
 " Only do this part when compiled with support for autocommands.
 if has("autocmd")
@@ -103,4 +95,53 @@ vmap <C-v> c<ESC>"+p
 imap <C-v> <ESC>"+pa
 
 " Change tabs to spaces - overwritten in .vim/after/ftplugin/python.vim
-:setlocal softtabstop=0 tabstop=4
+:set expandtab softtabstop=0 tabstop=4
+
+"Change background to transparent (use terminal color)
+hi Normal guibg=NONE ctermbg=NONE
+
+" By defualt hides all docstrings
+autocmd FileType python PyDocHide
+
+" Setting for ctags
+set tags=tags;
+set tags=./tags;
+
+
+"Better window navigation
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-h> <C-w>h
+nnoremap <C-l> <C-w>l
+
+"Set airline theme
+:let g:airline_theme='powerlineish'
+
+" Line showing 80 character
+set tw=79
+set colorcolumn=80
+
+
+" ### Ctrl P package for file fuzzy search
+"git submodule add  https://github.com/kien/ctrlp.vim.git bundel/ctrlp
+
+let g:ctrlp_map = '<c-p>'
+
+" ### vim-jedi
+" Option to disable completion
+let g:jedi#completions_enabled = 1
+let g:jedi#popup_on_dot = 0
+
+" ### Syntastic
+"
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 0
+let g:syntastic_check_on_open = 0
+let g:syntastic_check_on_wq = 0
+map <F8> <ESC>:call SyntasticToggleMode()<CR>
+hi SpellBad term=reverse ctermbg=darkgreen
+let g:ctrlp_cmd = 'CtrlP'

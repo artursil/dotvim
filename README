@@ -2,7 +2,8 @@ Installation:
 
 
 	git clone https://github.com/artursil/dotvim.git ~/.vim
-
+	sudo apt-get install pylint
+	pip install powerline
 Create symlinks:
 
 	ln -s ~/.vim/vimrc ~/.vimrc
