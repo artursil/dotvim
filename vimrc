@@ -17,11 +17,14 @@ call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 
 set number
-" Rempa Escape to jj 
+" Remap Escape to jj 
 :imap jj <Esc>
+" Remap mapleader to space
+noremap <SPACE> <Nop>
+let mapleader=" "
 
 " Change path to python3 - adds a powerline
- set rtp+=/home/artursil/anaconda3/lib/python3.7/site-packages/powerline/bindings/vim
+set rtp+=/home/artursil/anaconda3/lib/python3.7/site-packages/powerline/bindings/vim
 
 
 " Always show statusline
